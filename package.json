@@ -6,9 +6,9 @@
   "scripts": {
     "test": "jest",
     "index": "node index.js index",
-    "create": "node index.js create",
+    "add": "node index.js add",
     "update": "node index.js update",
-    "delete": "node index.js delete"
+    "remove": "node index.js remove"
   },
   "keywords": [],
   "author": "",

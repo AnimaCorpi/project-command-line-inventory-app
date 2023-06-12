@@ -23,19 +23,43 @@ function checkInventory (organicsData){
 }
 //console.log (checkInventory(organicsData)) ✅ works
 
+//creates a new object for the information given
+    //if the information given does not match the format given, then it will send an error message asking for the correct information type
 function addToInventory (organicsData, type, name, itemPrice, itemQuantity) {
+    if (typeof(type) != "string"){
+        return "item type must be a string"
+    }
+    if (typeof(name) != "string"){
+        return "item name must be a string"
+    }
+    if (typeof(price) != "number"){
+        return "item price must be a number"
+    }
+    if (typeof(quantity) != "number"){
+        return "item type must be a number"
+    }
+    else {
     let obj = {"itemType": `${type}`, "itemName": `${name}`, "price": `${itemPrice}`, "quantity": `${itemQuantity}`}
     organicsData.push(obj)
     return organicsData
-}
-//console.log(addToInventory(organicsData, "candy", "skittles", 0.75, 50)) ✅ works
+    }
+}    
+// console.log(addToInventory(organicsData, "candy", "skittles", 0.75, 50)) ✅ works
+// console.log(addToInventory(organicsData, 99, "skittles", 0.75, 50)) ✅ works
+// console.log(addToInventory(organicsData, "candy", 57, 0.75, 50)) ✅ works
+// console.log(addToInventory(organicsData, "candy", "skittles", true, 50)) ✅ works
+// console.log(addToInventory(organicsData, "candy", "skittles", 0.75, "stuffy stuff stuff stuff")) ✅ works
+
+
+// node src/organics.js
+
+
 function removeFromInventory(organicsData, name) {
-    for (let items = 0; items < organicsData.length; items++) {
-        // const element = organicsData[items];
-        if (items.itemName === `${name}`) {
-            organicsData.splice(items,1)
+    for (let i = 0; i < organicsData.length; i++) {
+        if (organicsData[i].itemName === name) {
+            organicsData.splice(i,1)
         }
     }
     return organicsData
 }
-console.log(removeFromInventory(organicsData, "apple"))
+// console.log(removeFromInventory(organicsData, "apple")) ✅ works
