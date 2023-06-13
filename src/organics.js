@@ -63,3 +63,5 @@ function removeFromInventory(organicsData, name) {
     return organicsData
 }
 // console.log(removeFromInventory(organicsData, "apple")) ✅ works
+
+
